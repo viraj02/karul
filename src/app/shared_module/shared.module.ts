@@ -4,6 +4,8 @@ import { HeaderComponent } from './ui/header/header.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { UiService } from './shared-service/ui.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AboutComponent } from './about/about.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 @NgModule({
 
@@ -14,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
     declarations: [
         FooterComponent,
         HeaderComponent,
+        AboutComponent,
+        ContactusComponent,
     ],
     exports: [
         FooterComponent,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UiService } from '../../shared-service/ui.service';
 import { UiHeaderText } from '../ui-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,8 +12,9 @@ export class HeaderComponent implements OnInit {
 
   activeSection: boolean;
   sectionHeaderData: UiHeaderText[] = [];
+  currentPageUrl: any;
 
-  constructor(private uiService: UiService) { }
+  constructor(private uiService: UiService, private router: Router) { }
 
   ngOnInit() {
     this.getData();
@@ -23,6 +25,10 @@ export class HeaderComponent implements OnInit {
     this.uiService.getHeaderName().subscribe(data => {
       this.sectionHeaderData = data;
     });
+  }
+
+  routerFun(url) {
+    this.router.navigateByUrl(`/${url}`);
   }
 
 }
