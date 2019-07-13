@@ -1,0 +1,20 @@
+
+.laxminarayan {
+        height:25%;
+        max-width:25%;
+        border:none;
+        display:block;
+}
+
+
+.column {
+    float: left;
+  }
+  
+  .left {
+    width: 25%;
+  }
+  
+  .right {
+    width: 75%;
+  }
