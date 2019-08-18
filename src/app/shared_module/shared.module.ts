@@ -11,7 +11,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 
     imports: [
         BrowserModule,
-        HttpClientModule
+        HttpClientModule,
     ],
     declarations: [
         FooterComponent,

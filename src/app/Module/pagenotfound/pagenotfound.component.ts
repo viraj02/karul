@@ -2,13 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  selector: 'app-pagenotfound',
+  templateUrl: './pagenotfound.component.html',
+  styleUrls: ['./pagenotfound.component.css']
 })
-export class FooterComponent implements OnInit {
-
-  copy: any = '&copy';
+export class PagenotfoundComponent implements OnInit {
 
   constructor(private route: Router) { }
 
