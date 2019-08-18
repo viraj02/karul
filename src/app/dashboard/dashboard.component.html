@@ -24,9 +24,8 @@
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
-    <app-footer class="footer" *ngIf="!(isHandset$ | async)" ></app-footer>
+    <app-footer class="footer" ></app-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
-<app-footer class="footer" *ngIf="(isHandset$ | async)" ></app-footer>
 
 
