@@ -2,16 +2,16 @@
     {
         "id": 1,
         "headerName": "Home",
-        "routerUrl": ""
+        "routerUrl": "/home"
     },
     {
         "id": 2,
         "headerName": "About",
-        "routerUrl": ""
+        "routerUrl": "/about"
     },
     {
         "id": 3,
         "headerName": "Contact Us",
-        "routerUrl": ""
+        "routerUrl": "/contact"
     }
 ]
