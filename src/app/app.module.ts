@@ -13,6 +13,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { PagenotfoundComponent } from './Module/pagenotfound/pagenotfound.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { PagenotfoundComponent } from './Module/pagenotfound/pagenotfound.compon
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent],
