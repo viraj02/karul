@@ -9,37 +9,46 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 export class FeedbackComponent implements OnInit {
 
   feedbackForm: FormGroup;
+  nameError = false;
 
-  // emailFormControl = new FormControl('', [
-  //   Validators.required,
-  //   Validators.email,
-  // ]);
   constructor() { }
 
   ngOnInit() {
+    this.createFormControls();
+  }
+
+  createFormControls() {
     this.feedbackForm = new FormGroup({
       nameFormControl: new FormControl('', [
-        Validators.required, Validators.pattern('^([a-zA-Z]){2,30}$')
+        Validators.required, Validators.pattern('^[a-zA-Z ]+'), Validators.minLength(2), Validators.maxLength(30)
       ]),
       emailFormControl: new FormControl('', [
         Validators.required,
         Validators.email,
+      ]),
+      phoneFormControl: new FormControl('', [
+        Validators.pattern('[0-9]{10}'),
+      ]),
+      commentFormControl: new FormControl('', [
+        Validators.required
       ])
     });
   }
 
   resetForm() {
-    this.feedbackForm.reset('');
+    this.feedbackForm.reset();
+    this.nameError = false;
   }
 
-  getFeedbackFormValue(field?) {
+  getFeedbackFormValue(field) {
 
     if (field == 'nameFormControl') {
-      console.log(this.getErrorStatus(field))
+      if (this.feedbackForm.controls.nameFormControl.value.trim() == '') {
+        this.nameError = true;
+      } else {
+        this.nameError = false;
+      }
     }
-
-    // return this.feedbackForm.value;
-    return this.feedbackForm.valid;
   }
 
   getErrorStatus(formControl) {
@@ -47,7 +56,9 @@ export class FeedbackComponent implements OnInit {
   }
 
   submitFeedback(): void {
-    console.log(this.feedbackForm.controls);
+    if (this.feedbackForm.valid) {
+      console.log(this.feedbackForm.controls);
+    }
   }
 
 }
