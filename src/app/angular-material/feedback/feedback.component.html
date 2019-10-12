@@ -1,0 +1,38 @@
+<br>
+<hr><br>
+
+<h3>Feedback</h3>
+
+<div class="container-fluid">
+    <form class="example-form" [formGroup]="feedbackForm" novalidate>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name" (blur)="getFeedbackFormValue('nameFormControl')" formControlName="nameFormControl">
+            <mat-icon matSuffix>face</mat-icon>
+            <mat-error *ngIf="getFeedbackFormValue('nameFormControl')" >Name is required</mat-error>
+        </mat-form-field>
+        <!-- {{ getFeedbackFormValue().controls }} -->
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" formControlName="emailFormControl">
+            <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error> -->
+            <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <span matPrefix>+91 &nbsp;</span>
+            <input type="tel" matInput placeholder="Telephone">
+            <mat-icon matSuffix>mode_edit</mat-icon>
+            <mat-hint align="start"><strong>Optional</strong> </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Leave a comment"></textarea>
+        </mat-form-field>
+
+        <button class="btn btn-outline-primary" (click)="submitFeedback()" >Click me!</button>
+        <button class="btn btn-outline-warning" (click)="resetForm()" >Clear</button>
+    </form>
+</div>
