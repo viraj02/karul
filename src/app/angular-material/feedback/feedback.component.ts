@@ -57,7 +57,6 @@ export class FeedbackComponent implements OnInit {
 
   submitFeedback(): void {
     if (this.feedbackForm.valid) {
-      console.log(this.feedbackForm.controls);
     }
   }
 
