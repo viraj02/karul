@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1570881919060,
+  "timestamp": 1570891549467,
   "index": "https://viraj02.github.io/karul/index.html",
   "assetGroups": [
     {
@@ -10,8 +10,8 @@
       "urls": [
         "https://viraj02.github.io/karul/favicon.ico",
         "https://viraj02.github.io/karul/index.html",
-        "https://viraj02.github.io/karul/main-es2015.56bf6319a2b00fcbde18.js",
-        "https://viraj02.github.io/karul/main-es5.735f8f74ee3fd82e1e79.js",
+        "https://viraj02.github.io/karul/main-es2015.b668c659fc831deae129.js",
+        "https://viraj02.github.io/karul/main-es5.6909407826bf207d7df0.js",
         "https://viraj02.github.io/karul/polyfills-es2015.27661dfa98f6332c27dc.js",
         "https://viraj02.github.io/karul/polyfills-es5.7f43b971448d2fb49202.js",
         "https://viraj02.github.io/karul/runtime-es2015.858f8dd898b75fe86926.js",
@@ -70,9 +70,9 @@
     "https://viraj02.github.io/karul/fontawesome-webfont.af7ae505a9eed503f8b8.woff2": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c",
     "https://viraj02.github.io/karul/fontawesome-webfont.b06871f281fee6b241d6.ttf": "13b1eab65a983c7a73bc7997c479d66943f7c6cb",
     "https://viraj02.github.io/karul/fontawesome-webfont.fee66e712a8a08eef580.woff": "28b782240b3e76db824e12c02754a9731a167527",
-    "https://viraj02.github.io/karul/index.html": "f8153f984040cb3bb09f1443ea33c4c24e5136d1",
-    "https://viraj02.github.io/karul/main-es2015.56bf6319a2b00fcbde18.js": "e18da30e11f009b7c2edd4140b9ee4bddfc39cd3",
-    "https://viraj02.github.io/karul/main-es5.735f8f74ee3fd82e1e79.js": "78b0b0155f92c66efe3fe1baee84d1da8319a6eb",
+    "https://viraj02.github.io/karul/index.html": "43c1bb3672f4942a1177e609815ecca852190b92",
+    "https://viraj02.github.io/karul/main-es2015.b668c659fc831deae129.js": "699afeb6370466877b1885a713b89f3c67bd5ab8",
+    "https://viraj02.github.io/karul/main-es5.6909407826bf207d7df0.js": "3b58b29b7baab5ccaac194a7955abc8305b84a12",
     "https://viraj02.github.io/karul/polyfills-es2015.27661dfa98f6332c27dc.js": "77f974dd2b186031cfc4f4526d96db4efcd39353",
     "https://viraj02.github.io/karul/polyfills-es5.7f43b971448d2fb49202.js": "f84a71ef6c7a788b5fe701bf2405313d7766a66d",
     "https://viraj02.github.io/karul/runtime-es2015.858f8dd898b75fe86926.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
