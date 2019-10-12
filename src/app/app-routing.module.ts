@@ -5,12 +5,14 @@ import { AboutComponent } from './shared_module/about/about.component';
 import { ContactusComponent } from './shared_module/contactus/contactus.component';
 import { CardComponent } from './angular-material/card/card.component';
 import { PagenotfoundComponent } from './Module/pagenotfound/pagenotfound.component';
+import { FeedbackComponent } from './angular-material/feedback/feedback.component';
 
 const routes: Routes = [
   // { path: 'home', component: HomepageComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactusComponent },
   { path: 'home', component: CardComponent },
+  { path: 'feedback', component: FeedbackComponent },
   { path: 'pagenotfound', component: PagenotfoundComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/pagenotfound', pathMatch: 'full' },

@@ -15,6 +15,7 @@ section .section-title {
 
 #footer {
   background: rgb(253, 182, 75) !important;
+  padding-bottom: 15%;
 }
 
 #footer h5 {
