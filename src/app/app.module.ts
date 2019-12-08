@@ -15,6 +15,10 @@ import { MatListModule } from '@angular/material/list';
 import { PagenotfoundComponent } from './Module/pagenotfound/pagenotfound.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { FeedbackService } from './Services/feedback.service';
 
 
 @NgModule({
@@ -35,8 +39,10 @@ import { environment } from '../environments/environment';
     MatIconModule,
     MatListModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [AngularFirestore, FeedbackService, ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA, ],
 })
