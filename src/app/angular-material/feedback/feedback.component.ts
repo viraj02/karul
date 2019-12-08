@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { FeedbackService, FeedBack } from '../../Services/feedback.service';
 
 @Component({
   selector: 'app-feedback',
@@ -10,8 +11,9 @@ export class FeedbackComponent implements OnInit {
 
   feedbackForm: FormGroup;
   nameError = false;
+  userFeedBack = [];
 
-  constructor() { }
+  constructor(private feedbackService: FeedbackService, ) { }
 
   ngOnInit() {
     this.createFormControls();
@@ -42,7 +44,7 @@ export class FeedbackComponent implements OnInit {
 
   getFeedbackFormValue(field) {
 
-    if (field == 'nameFormControl') {
+    if (field === 'nameFormControl') {
       if (this.feedbackForm.controls.nameFormControl.value.trim() == '') {
         this.nameError = true;
       } else {
@@ -57,6 +59,7 @@ export class FeedbackComponent implements OnInit {
 
   submitFeedback(): void {
     if (this.feedbackForm.valid) {
+      this.feedbackService.submitData(this.feedbackForm.value);
     }
   }
 
