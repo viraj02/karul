@@ -4,7 +4,7 @@
 <h3>Feedback</h3>
 
 <div class="container-fluid">
-    <form class="example-form" [formGroup]="feedbackForm" (ngSubmit)="submitFeedback()" novalidate>
+    <form class="example-form" [formGroup]="feedbackForm" novalidate>
 
         <mat-form-field class="example-full-width">
             <input matInput placeholder="Name"
@@ -38,7 +38,7 @@
             <mat-error *ngIf="feedbackForm.controls.commentFormControl.errors?.required">Comment are required.</mat-error>
         </mat-form-field>
 
-        <button  mat-raised-button type="submit" class="btn btn-outline-primary">Submit</button>
+        <button  mat-raised-button type="button" class="btn btn-outline-primary" (click)="submitFeedback()">Submit</button>
         <button class="btn btn-outline-warning" type="button" (click)="resetForm()">Clear</button>
     </form>
 </div>
