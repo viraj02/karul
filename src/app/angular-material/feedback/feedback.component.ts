@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { FeedbackService, FeedBack } from '../../Services/feedback.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FeedbackService } from '../../Services/feedback.service';
 
 @Component({
   selector: 'app-feedback',
@@ -60,6 +60,7 @@ export class FeedbackComponent implements OnInit {
   submitFeedback(): void {
     if (this.feedbackForm.valid) {
       this.feedbackService.submitData(this.feedbackForm.value);
+      this.resetForm();
     }
   }
 
