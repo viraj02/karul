@@ -19,6 +19,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FeedbackService } from './Services/feedback.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { FeedbackService } from './Services/feedback.service';
     MatListModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpClientModule
   ],
   providers: [AngularFirestore, FeedbackService, ],
   bootstrap: [AppComponent],

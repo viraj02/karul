@@ -12,29 +12,58 @@ export class FeedbackComponent implements OnInit {
   feedbackForm: FormGroup;
   nameError = false;
   userFeedBack = [];
+  isLoginPage: boolean = true;
+  isDOMReady: boolean = false;
+  formData: any = [];
+  buttonDetails: any = [];
 
   constructor(private feedbackService: FeedbackService, ) { }
 
   ngOnInit() {
-    this.createFormControls();
+    this.getFormData();
+    // this.createFormControls();
+    // this.addNewFormControl();
+
+    // if (this.isLoginPage) {
+    //   this.addNewFormControl();
+    // }
+  }
+
+  getFormData() {
+    this.feedbackService.getFormData().subscribe((data) => {
+      this.formData = data['formField'];
+      this.buttonDetails = data['formButton'];
+      this.createFormControls();
+    });
   }
 
   createFormControls() {
     this.feedbackForm = new FormGroup({
-      nameFormControl: new FormControl('', [
-        Validators.required, Validators.pattern('^[a-zA-Z ]+'), Validators.minLength(2), Validators.maxLength(30)
-      ]),
-      emailFormControl: new FormControl('', [
-        Validators.required,
-        Validators.email,
-      ]),
-      phoneFormControl: new FormControl('', [
-        Validators.pattern('[0-9]{10}'),
-      ]),
-      commentFormControl: new FormControl('', [
-        Validators.required
-      ])
+      // nameFormControl: new FormControl('', [
+      //   Validators.required, Validators.pattern('^[a-zA-Z ]+'), Validators.minLength(2), Validators.maxLength(30)
+      // ]),
+      // emailFormControl: new FormControl('', [
+      //   Validators.required,
+      //   Validators.email,
+      // ]),
+      // phoneFormControl: new FormControl('', [
+      //   Validators.pattern('[0-9]{10}'),
+      // ])
     });
+    this.addNewFormControl();
+  }
+
+  // To add Form Control Dynamically.
+  addNewFormControl() {
+    this.formData.forEach((frmData, i) => {
+      this.feedbackForm.addControl(frmData.formcontName, new FormControl('', [frmData.validationType.toString()]));
+    });
+    setTimeout(() => {
+      this.isDOMReady = true;
+    }, 3000);
+    // this.feedbackForm.addControl('commentFormControl', new FormControl('', [
+    //   Validators.required
+    // ]));
   }
 
   resetForm() {
@@ -45,7 +74,7 @@ export class FeedbackComponent implements OnInit {
   getFeedbackFormValue(field) {
 
     if (field === 'nameFormControl') {
-      if (this.feedbackForm.controls.nameFormControl.value.trim() == '') {
+      if (this.feedbackForm.controls.nameFormControl.value && this.feedbackForm.controls.nameFormControl.value.trim() == '') {
         this.nameError = true;
       } else {
         this.nameError = false;
@@ -53,8 +82,12 @@ export class FeedbackComponent implements OnInit {
     }
   }
 
-  getErrorStatus(formControl) {
-    return this.feedbackForm.controls[formControl].errors;
+  getErrorMessage(formControl) {
+    this.formData.forEach((data) => {
+      if (this.feedbackForm.controls.formControl.errors.required) {
+
+      }
+    });
   }
 
   submitFeedback(): void {

@@ -5,6 +5,7 @@
       [opened]="!(isHandset$ | async)">
     <mat-toolbar>Menu </mat-toolbar>
     <mat-nav-list>
+      <a mat-list-item (click)="navigate('login')"> Login </a>
       <a mat-list-item (click)="navigate('about')">About</a>
       <a mat-list-item (click)="navigate('home')">Home</a>
       <a mat-list-item (click)="navigate('feedback')"> Feedback </a>

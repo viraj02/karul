@@ -1,0 +1,102 @@
+{
+    "formField": [
+        {
+            "name": "Name",
+            "icon": "face",
+            "formcontName": "nameFormControl",
+            "inputType": "",
+            "inputPrefix": "",
+            "validationType": [
+                "Validators.required",
+                "Validators.pattern('^[a-zA-Z ]+')",
+                "Validators.minLength(2)",
+                "Validators.maxLength(30)"
+            ],
+            "validation": [
+                {
+                    "errorName": "required",
+                    "message": "Name required."
+                },
+                {
+                    "errorName": "pattern",
+                    "message": "Name should have only alphabets."
+                },
+                {
+                    "errorName": "minLength",
+                    "message": "Name shouldn't be greater than 30 length long."
+                },
+                {
+                    "errorName": "maxLength",
+                    "message": "Name should have only alphabets."
+                }
+            ]
+        },
+        {
+            "name": "Email",
+            "icon": "email",
+            "inputType": "email",
+            "inputPrefix": "",
+            "formcontName": "emailFormControl",
+            "validationType": [
+                "Validators.required",
+                "Validators.email"
+            ],
+            "validation": [
+                {
+                    "errorName": "required",
+                    "message": "Email required."
+                },
+                {
+                    "errorName": "email",
+                    "message": "Enter valid email."
+                }
+            ]
+        },
+        {
+            "name": "Mobile Number",
+            "icon": "phone",
+            "formcontName": "phoneFormControl",
+            "inputType": "tel",
+            "inputPrefix": "+91",
+            "validationType": [
+                "Validators.pattern('[0-9]{10}')"
+            ],
+            "validation": [
+                {
+                    "errorName": "pattern",
+                    "message": "Must be 10 digit number."
+                }
+            ]
+        },
+        {
+            "name": "Leave a comment",
+            "icon": "",
+            "formcontName": "commentFormControl",
+            "inputType": "textarea",
+            "inputPrefix": "",
+            "validationType": [
+                "Validators.required"
+            ],
+            "validation": [
+                {
+                    "errorName": "required",
+                    "message": "Comment are required."
+                }
+            ]
+        }
+    ],
+    "formButton": [
+        {
+            "name": "Submit",
+            "type": "button",
+            "class": "btn btn-outline-primary",
+            "funName": "submitFeedback()"
+        },
+        {
+            "name": "Clear",
+            "type": "button",
+            "class": "btn btn-outline-warning",
+            "funName": "resetForm()"
+        }
+    ]
+}

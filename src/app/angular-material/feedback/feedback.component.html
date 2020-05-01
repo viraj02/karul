@@ -3,42 +3,66 @@
 
 <h3>Feedback</h3>
 
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="isDOMReady">
     <form class="example-form" [formGroup]="feedbackForm" novalidate>
 
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Name"
-                formControlName="nameFormControl" (blur)="getFeedbackFormValue('nameFormControl')">
+        <mat-form-field class="example-full-width" *ngFor="let fData of formData">
+            <span matPrefix> {{ fData.inputPrefix }} &nbsp;</span>
+            <textarea *ngIf="fData?.inputType == 'textarea'" matInput [placeholder]="fData?.name"
+                [formControlName]="fData?.formcontName"></textarea>
+            <input *ngIf="fData?.inputType != 'textarea'" [type]="fData?.inputType" matInput [placeholder]="fData?.name"
+                [formControlName]="fData?.formcontName">
+            <mat-icon matSuffix>{{ fData?.icon }}</mat-icon>
+            <ng-container *ngFor="let validation of fData.validation;" ngProjectAs="mat-error">
+                <mat-error *ngIf="feedbackForm.get(fData?.formcontName).hasError(validation.errorName)">
+                    {{validation.message}}</mat-error>
+            </ng-container>
+        </mat-form-field>
+
+        <!-- <button *ngFor="let btn of buttonDetails" [type]="btn.type" [class]="btn.class" (click)="btn.funName">{{ btn.name }}</button> -->
+        <button mat-raised-button type="button" type="button" class="btn btn-outline-primary"
+            (click)="submitFeedback()">Submit</button>
+        <button type="button" class="btn btn-outline-warning" (click)="resetForm()">Clear</button>
+
+        <!-- <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name" formControlName="nameFormControl"
+                (blur)="getFeedbackFormValue('nameFormControl')">
             <mat-icon matSuffix>face</mat-icon>
             <mat-error *ngIf="feedbackForm.controls.nameFormControl.errors?.required">Name required.</mat-error>
-            <mat-error *ngIf="feedbackForm.controls.nameFormControl.errors?.minlength"> Name should be minimum 2 length long. </mat-error>
-            <mat-error *ngIf="feedbackForm.controls.nameFormControl.errors?.maxlength"> Name shouldn't be greater than 30 length long. </mat-error>
-            <mat-error *ngIf="feedbackForm.controls.nameFormControl.errors?.pattern"> Name should have only alphabets. </mat-error>
+            <mat-error *ngIf="feedbackForm.controls.nameFormControl.errors?.minlength"> Name should be minimum 2 length
+                long. </mat-error>
+            <mat-error *ngIf="feedbackForm.controls.nameFormControl.errors?.maxlength"> Name shouldn't be greater than
+                30 length long. </mat-error>
+            <mat-error *ngIf="feedbackForm.controls.nameFormControl.errors?.pattern"> Name should have only alphabets.
+            </mat-error>
         </mat-form-field>
         <span *ngIf="nameError" style="color: red;"> Name should have only alphabets. </span>
 
         <mat-form-field class="example-full-width">
             <input matInput placeholder="Email" formControlName="emailFormControl">
             <mat-icon matSuffix>email</mat-icon>
-            <mat-error *ngIf="feedbackForm.controls.emailFormControl.errors?.required">Email Required</mat-error>
+            <mat-error *ngIf="feedbackForm.controls.emailFormControl.errors?.required">Email required</mat-error>
             <mat-error *ngIf="feedbackForm.controls.emailFormControl.errors?.email">Enter valid email</mat-error>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
             <span matPrefix>+91 &nbsp;</span>
-            <input type="tel" matInput placeholder="Mobile Number" formControlName="phoneFormControl" >
+            <input type="tel" matInput placeholder="Mobile Number" formControlName="phoneFormControl" minlength="5">
             <mat-icon matSuffix>phone</mat-icon>
             <mat-hint align="start"><strong>Optional</strong> </mat-hint>
-            <mat-error *ngIf="feedbackForm.controls.phoneFormControl.errors?.pattern"> Should have only 10 digit number. </mat-error>
+            <mat-error *ngIf="feedbackForm.controls.phoneFormControl.errors?.pattern"> Should have only 10 digit number.
+            </mat-error>
             <mat-error></mat-error>
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="example-full-width" *ngIf="isLoginPage">
             <textarea matInput placeholder="Leave a comment" formControlName="commentFormControl"></textarea>
-            <mat-error *ngIf="feedbackForm.controls.commentFormControl.errors?.required">Comment are required.</mat-error>
+            <mat-error *ngIf="feedbackForm.controls.commentFormControl.errors?.required">Comment are required.
+            </mat-error>
         </mat-form-field>
 
-        <button  mat-raised-button type="button" class="btn btn-outline-primary" (click)="submitFeedback()">Submit</button>
-        <button class="btn btn-outline-warning" type="button" (click)="resetForm()">Clear</button>
+        <button mat-raised-button type="button" class="btn btn-outline-primary"
+            (click)="submitFeedback()">Submit</button>
+        <button class="btn btn-outline-warning" type="button" (click)="resetForm()">Clear</button> -->
     </form>
 </div>

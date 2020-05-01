@@ -6,9 +6,13 @@ import { ContactusComponent } from './shared_module/contactus/contactus.componen
 import { CardComponent } from './angular-material/card/card.component';
 import { PagenotfoundComponent } from './Module/pagenotfound/pagenotfound.component';
 import { FeedbackComponent } from './angular-material/feedback/feedback.component';
+import { LoginComponent } from './shared_module/login/login.component';
+import { SignupComponent } from './shared_module/signup/signup.component';
 
 const routes: Routes = [
   // { path: 'home', component: HomepageComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactusComponent },
   { path: 'home', component: CardComponent },

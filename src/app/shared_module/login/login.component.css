@@ -1,0 +1,29 @@
+
+#login-main-cont {
+    /* padding-top: 4%; */
+    
+}
+
+#jum-div {
+    background-color: rgb(249, 249, 249);
+    width: 90%;
+    height: 90%;
+}
+
+.headerJum {
+    text-align: center;
+}
+
+.form-group {
+    text-align: center;
+}
+
+label {
+    text-align: center;
+    clear: both;
+    margin-right:15px;
+}
+
+#header {
+    font-size: 3.5rem;
+}

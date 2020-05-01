@@ -6,6 +6,8 @@ import { UiService } from './shared-service/ui.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
 
@@ -18,10 +20,14 @@ import { ContactusComponent } from './contactus/contactus.component';
         HeaderComponent,
         AboutComponent,
         ContactusComponent,
+        LoginComponent,
+        SignupComponent,
     ],
     exports: [
         FooterComponent,
         HeaderComponent,
+        LoginComponent,
+        SignupComponent,
     ],
     providers: [UiService]
 
